@@ -1,7 +1,16 @@
+import React from "react";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from './components/NavBar';
+import Footer from "./components/Footer";
+
 
 function App() {
   return (
-    <h1>App</h1>
+    <div>
+      <NavBar />
+      <ItemListContainer greeting={"Líderes en el mercado del Padel Argentino. Encontrá la mejor calidad de todas las marcas importadas y nacionales."}/> 
+      <Footer />
+    </div>
   );
 }
 
