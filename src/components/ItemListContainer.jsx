@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useState, useEffect }   from "react";
+import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
+import listaProductos from "./Json/ListaProductos.json";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        const promesa = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(listaProductos);
+            }, 2000)
+        });
+
+        promesa.then((data) => {
+            setItems(data);
+        })
+
+    }, []);
+
     return(
-        <div className="row contenedorBody">
-            <div className="col-md-6 listaContenedor">
-                <h1>TIENDA PADEL</h1>
-            </div>
-            <div className="col-md-6 listaContenedor">
-                <p>{greeting}</p>    
-            </div>
+        <div className="container">
+            <ItemList items={items}/>
+            <ItemCount stockItem = {10} />   
         </div>
     )
 }
