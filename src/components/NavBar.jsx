@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return(
-        <div className="container">
+        <div className="container mb-3">
             <div className="row">
                 <div className="col-md-6">
                     <nav className="navbar navbar-expand-lg bg-light">

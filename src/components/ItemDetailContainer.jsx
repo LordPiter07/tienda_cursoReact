@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import listaProductos from "./Json/ListaProductos.json"
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState ({});
     const {id} = useParams();
 
-    useEffect(() => {
-        const promesa = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(listaProductos.find(item => item.id === parseInt(id)));
-            }, 2000);
-        });
-
-        promesa.then((data) => {
-            setItem(data);
+    useEffect( () =>{
+        const db = getFirestore();
+        const documento = doc(db, "items", id);
+        getDoc(documento).then((snapShot) => {
+            if(snapShot.exists()){
+                setItem({id:snapShot.id, ...snapShot.data()});
+            } else {
+                console.log("ERROR no existe el producto")
+            };
         })
-    }, [id]);
+    }, [])
 
     return (
         <div className="container">
