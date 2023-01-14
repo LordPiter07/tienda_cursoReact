@@ -20,7 +20,7 @@ const ItemListContainer = () => {
     }, [id]);
 
     return(
-        <div className="container">
+        <div className="container estiloLista my-4">
             <ItemList items={items}/>   
         </div>
     )

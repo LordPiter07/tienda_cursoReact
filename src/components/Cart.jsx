@@ -10,7 +10,7 @@ const Cart = () => {
             <div className="container py-5">
                 <div className="row">
                     <div className="col-md-12">
-                        <div class="alert alert-dark" role="alert">
+                        <div className="alert alert-dark" role="alert">
                             No se encuentran productos en el carrito.
                         </div>
                         <Link to={"/"} className="btn bg-light"> Volver a la Pagina Principal </Link>
@@ -24,10 +24,10 @@ const Cart = () => {
         <div className="container py-5">
             <div className="row">
                 <div className="col-md-12">
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col" className="text-end" colSpan={5}><Link onClick={clear} className="btn bg-light">Vaciar Carrito</Link></th>
+                                <th scope="col" className="text-end" colSpan={5}><Link onClick={clear} className="btn bg-dark text-light">Vaciar Carrito</Link></th>
                             </tr>
                             <tr>
                                 <th scope="col">&nbsp;</th>
@@ -51,9 +51,8 @@ const Cart = () => {
                                 <td colSpan={2}>&nbsp;</td>
                                 <td className="text-center">Suma Total</td>
                                 <td className="text-center"><b>${sumaTotal()}</b></td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            
+                                <td className="text-center"><Link to={"/finalizarCompra"} className="btn bg-dark text-light">Finalizar Compra</Link></td>
+                            </tr>    
                         </tbody>
                     </table>
                 </div>
